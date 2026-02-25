@@ -1,0 +1,54 @@
+# API Endpoints
+
+Base URL: `http://localhost:8080`
+
+## GET /api/events
+
+イベント一覧を取得する。
+
+**Response**
+
+- `200 OK`
+
+```json
+[
+  {
+    "type": "message",
+    "time": "2026-02-25T12:00:00Z",
+    "from": "Player1",
+    "message": {
+      "to": "all",
+      "content": "おはようございます"
+    }
+  }
+]
+```
+
+初期状態では空配列 `[]` を返す。
+
+---
+
+## POST /api/events
+
+イベントを追加する。
+
+**Request**
+
+- `Content-Type: application/json`
+
+```json
+{
+  "type": "message",
+  "time": "2026-02-25T12:00:00Z",
+  "from": "Player1",
+  "message": {
+    "to": "all",
+    "content": "おはようございます"
+  }
+}
+```
+
+**Response**
+
+- `201 Created` — ボディなし
+- `400 Bad Request` — JSON のパースに失敗した場合

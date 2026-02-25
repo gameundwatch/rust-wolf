@@ -1,0 +1,17 @@
+# API Types
+
+## Event
+
+| Field     | Type                    | Description              |
+|-----------|-------------------------|--------------------------|
+| `type`    | `string`                | イベント種別 (`"message"` / `"system"` / `"action"`) |
+| `time`    | `string`                | ISO 8601 形式のタイムスタンプ |
+| `from`    | `string`                | 送信者名                  |
+| `message` | `MessagePayload \| null` | メッセージ本文（`type` が `"message"` の場合） |
+
+## MessagePayload
+
+| Field     | Type     | Description          |
+|-----------|----------|----------------------|
+| `to`      | `string` | 宛先 (`"all"` または プレイヤー名) |
+| `content` | `string` | メッセージ内容        |
