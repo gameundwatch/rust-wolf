@@ -1,23 +1,10 @@
-use actix_web::{get, post, App, web, HttpResponse, HttpServer};
+use actix_web::{App, web, HttpServer};
 use actix_cors::Cors;
 use dotenvy::dotenv;
 use std::env;
 use std::sync::Mutex;
 
-pub use backend::{AppState, Event, MessagePayload};
-
-#[get("/api/events")]
-async fn handle_get_events(state: web::Data<AppState>) -> HttpResponse {
-  let events = state.events.lock().unwrap();
-  HttpResponse::Ok().json(events.clone())
-}
-
-#[post("/api/events")]
-async fn handle_post_events(state: web::Data<AppState>, body: web::Json<Event>) -> HttpResponse {
-  let mut events = state.events.lock().unwrap();
-  events.push(body.into_inner());
-  HttpResponse::Created().into()
-}
+pub use backend::{AppState, Event, MessagePayload, handle_get_events, handle_post_events};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
