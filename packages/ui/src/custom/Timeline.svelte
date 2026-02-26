@@ -1,14 +1,7 @@
 <script lang="ts">
   import Message from "./Message.svelte";
-
-  type Event = {
-    type: string;
-    time: Date;
-    from: string;
-    message?: MessageProps;
-  };
-
-  let { events } = $props();
+  import type { Event } from "@rust-wolf/bindings/Event";
+  let { events }: { events: Event[] } = $props();
 </script>
 
 <table class="w-full">

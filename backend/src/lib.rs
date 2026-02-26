@@ -4,14 +4,14 @@ use std::sync::Mutex;
 use ts_rs::TS;
 
 #[derive(TS, Debug, Clone, Serialize, Deserialize, PartialEq)]
-#[ts(export, export_to = "../../frontend/src/bindings/")]
+#[ts(export, export_to = "../../packages/bindings/")]
 pub struct MessagePayload {
     pub to: String,
     pub content: String,
 }
 
 #[derive(TS, Debug, Clone, Serialize, Deserialize, PartialEq)]
-#[ts(export, export_to = "../../frontend/src/bindings/")]
+#[ts(export, export_to = "../../packages/bindings/")]
 pub struct Event {
     #[serde(rename = "type")]
     pub event_type: String,

@@ -1,8 +1,5 @@
 <script lang="ts">
-  export type MessageProps = {
-    to: string;
-    content: string;
-  };
+  import type { MessagePayload } from "@rust-wolf/bindings/MessagePayload";
 
   let {
     time,
@@ -11,7 +8,7 @@
   }: {
     time: Date;
     from: string;
-    message: MessageProps;
+    message: MessagePayload;
   } = $props();
 </script>
 
